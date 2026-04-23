@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faith In Movement</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; background:#fff7f0; }
+
+    header { background: linear-gradient(135deg,#ff7a18,#ffb347); color: white; padding: 25px; text-align: center; }
+    header h1 { margin:0; font-size: 2.2rem; }
+
+    nav { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top:0; }
+    nav a { color: #ff7a18; margin: 0 15px; text-decoration: none; font-weight: bold; }
+
+    .hero { 
+      background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65') center/cover;
+      color: white; padding: 140px 20px; text-align: center;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom:10px; }
+    .hero p { font-size:1.2rem; margin-bottom:25px; }
+
+    .btn { display:inline-block; padding:14px 28px; background:#ff7a18; color:white; border-radius:10px; text-decoration:none; font-weight:bold; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+    .btn:hover { background:#cc5f10; }
+
+    .section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+    .section h2 { color:#ff7a18; text-align:center; margin-bottom:20px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+    .preview-images { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin:40px 0; }
+    .preview-card { position:relative; overflow:hidden; border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.2); transition: transform 0.4s ease; }
+    .preview-card img { width:320px; display:block; }
+    .preview-card:hover { transform: scale(1.05); }
+
+    /* Popup Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .lightbox.active { display: flex; }
+
+    form input, form textarea { padding:12px; border-radius:8px; border:1px solid #ddd; }
+    form button { padding:12px; background:#ff7a18; color:white; border:none; border-radius:8px; cursor:pointer; }
+
+    footer { background: #222; color: white; text-align: center; padding: 25px; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Faith In Movement</h1>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#store">Planner</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Build Your Faith Daily</h2>
+  <p>Created to help you stay consistent with God—even on your busiest days.</p>
+  <p><strong>Start your faith routine today.</strong></p>
+  <a href="#store" class="btn">Get The Planner</a>
+</section>
+
+<section class="section" id="store">
+  <h2>Faith Building Daily Planner</h2>
+  <p style="text-align:center;max-width:700px;margin:0 auto;">A simple, powerful system to help you stay consistent in prayer, scripture, and purpose—every single day.</p>
+
+  <div class="preview-images">
+    <div class="preview-card">
+      <img src="Weekly Goal Overview.png" alt="Weekly Goal Overview" onclick="openLightbox(this.src)">
+    </div>
+    <div class="preview-card">
+      <img src="Tuesday Devotion.png" alt="Tuesday Devotion" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Grow With Structure</h3>
+      <p>This planner gives you a daily system to stay consistent in prayer, scripture, and purpose.</p>
+
+      <ul>
+        <li>✔ Daily scripture focus</li>
+        <li>✔ Prayer tracking</li>
+        <li>✔ Spiritual reflection</li>
+        <li>✔ Weekly intentional goals</li>
+      </ul>
+
+      <h3>Who This Is For:</h3>
+      <ul>
+        <li>✔ Believers who want consistency with God</li>
+        <li>✔ People feeling spiritually stuck</li>
+        <li>✔ Busy individuals needing structure</li>
+        <li>✔ Those seeking clarity and purpose</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Start your faith routine today.</strong></p>
+      <a href="https://faithmovement.gumroad.com/l/planner" target="_blank" class="btn">Get Instant Access</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <form action="https://formsubmit.co/faith.in.movement.wins@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto;">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <input type="hidden" name="_subject" value="New Message">
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2026 Faith In Movement</p>
+</footer>
+
+<!-- Lightbox Popup -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
